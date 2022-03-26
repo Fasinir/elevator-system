@@ -1,5 +1,10 @@
-package com.filippiwosz.elevatorsystem;/**
+package com.filippiwosz.elevatorsystem;
+
+/**
  * @author Filip Piwosz
-*/
-class Main {
+ */
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
+    }
 }
