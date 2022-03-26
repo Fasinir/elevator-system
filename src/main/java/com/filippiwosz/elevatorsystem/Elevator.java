@@ -3,6 +3,8 @@ package com.filippiwosz.elevatorsystem;
 import com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState;
 import com.filippiwosz.elevatorsystem.elevatorstates.StandingState;
 
+import java.util.Optional;
+
 /**
  * @author Filip Piwosz
  */
@@ -25,6 +27,6 @@ class Elevator {
     }
 
     ElevatorStatus currentStatus() {
-        throw new UnsupportedOperationException();
+        return new ElevatorStatus(id, currentFloor, Optional.ofNullable(targetFloor));
     }
 }
