@@ -7,6 +7,12 @@ import java.util.List;
  */
 class ElevatorSystem {
 
+    private final List<Elevator> elevators;
+
+    ElevatorSystem(List<Elevator> elevators) {
+        this.elevators = elevators;
+    }
+
     void pickup(FloorNumber number, ElevatorDirection direction) {
         throw new UnsupportedOperationException();
     }
