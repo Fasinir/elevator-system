@@ -34,7 +34,7 @@ public class Elevator {
         this.state = startingState;
     }
 
-    ElevatorStatus currentStatus() {
+    public ElevatorStatus currentStatus() {
         return new ElevatorStatus(id, currentFloor, Optional.ofNullable(targetFloor));
     }
 
@@ -48,5 +48,13 @@ public class Elevator {
 
     public void moveFloorDown() {
         currentFloor = new FloorNumber(currentFloor.value() - 1);
+    }
+
+    public void targetNewFloor(FloorNumber floorNumber) {
+        targetFloor = floorNumber;
+    }
+
+    public void changeState(ElevatorState state) {
+        this.state = state;
     }
 }
