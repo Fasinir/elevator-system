@@ -41,4 +41,12 @@ public class Elevator {
     void update() {
         state.update(this);
     }
+
+    public void moveFloorUp() {
+        currentFloor = new FloorNumber(currentFloor.value() + 1);
+    }
+
+    public void moveFloorDown() {
+        currentFloor = new FloorNumber(currentFloor.value() - 1);
+    }
 }

@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 /**
  * @author Filip Piwosz
  */
-public class StatusStaticProvider {
+public class ElevatorStaticProvider {
 
     @DataProvider
     public static Object[][] regularConstructorParameters() {
