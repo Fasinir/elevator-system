@@ -15,8 +15,16 @@ public class Elevator {
     private FloorNumber targetFloor;
     private ElevatorState state;
 
+    Elevator(int id, int startingFloor) {
+        this(new ElevatorId(id), new FloorNumber(startingFloor), null, new StandingState());
+    }
+
     Elevator(ElevatorId id, FloorNumber startingFloor) {
         this(id, startingFloor, null, new StandingState());
+    }
+
+    Elevator(int id, int startingFloor, int targetFloor, ElevatorState startingState) {
+        this(new ElevatorId(id), new FloorNumber(startingFloor), new FloorNumber(targetFloor), startingState);
     }
 
     Elevator(ElevatorId id, FloorNumber startingFloor, FloorNumber targetFloor, ElevatorState startingState) {
