@@ -1,8 +1,6 @@
 package com.filippiwosz.elevatorsystem;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * @author Filip Piwosz
@@ -16,10 +14,6 @@ class ElevatorSystem {
     }
 
     void pickup(FloorNumber number, ElevatorDirection direction) {
-        throw new UnsupportedOperationException();
-    }
-
-    void update(ElevatorId id, FloorNumber oldNumber, FloorNumber newNumber) {
         throw new UnsupportedOperationException();
     }
 

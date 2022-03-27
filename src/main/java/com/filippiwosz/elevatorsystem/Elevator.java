@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * @author Filip Piwosz
  */
-class Elevator {
+public class Elevator {
 
     private final ElevatorId id;
     private FloorNumber currentFloor;
@@ -28,5 +28,9 @@ class Elevator {
 
     ElevatorStatus currentStatus() {
         return new ElevatorStatus(id, currentFloor, Optional.ofNullable(targetFloor));
+    }
+
+    void update() {
+        state.update(this);
     }
 }
