@@ -9,8 +9,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * @author Filip Piwosz
  */
-@Test
-class ElevatorTest {
+public class ElevatorTest {
 
     @Test(dataProvider = "regularConstructorParameters", dataProviderClass = ElevatorStaticProvider.class)
     public void currentStatus_properConstructorParameters_actualEqualsExpected(

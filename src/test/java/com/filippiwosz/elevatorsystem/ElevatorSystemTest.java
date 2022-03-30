@@ -6,6 +6,6 @@ import org.testng.annotations.Test;
  * @author Filip Piwosz
  */
 @Test
-class ElevatorSystemTest {
+public class ElevatorSystemTest {
 
 }

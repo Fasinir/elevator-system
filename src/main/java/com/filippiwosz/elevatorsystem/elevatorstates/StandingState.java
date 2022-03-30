@@ -4,6 +4,9 @@ import com.filippiwosz.elevatorsystem.Elevator;
 import com.filippiwosz.elevatorsystem.ElevatorStatus;
 import com.filippiwosz.elevatorsystem.FloorNumber;
 
+import static com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState.targetFloorIsDown;
+import static com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState.targetFloorIsUp;
+
 /**
  * @author Filip Piwosz
  */
@@ -16,19 +19,13 @@ public class StandingState implements ElevatorState {
             FloorNumber currentFloor = status.currentFloor();
 
             if (targetFloorIsUp(currentFloor, targetFloor)) {
+                elevator.changeState(new GoingUpState());
             } else if (targetFloorIsDown(currentFloor, targetFloor)) {
-
+                elevator.changeState(new GoingDownState());
             } else {
-
+                elevator.targetNewFloor(null);
             }
         }
     }
 
-    private boolean targetFloorIsUp(FloorNumber currentFloor, FloorNumber targetFloor) {
-        return currentFloor.value() < targetFloor.value();
-    }
-
-    private boolean targetFloorIsDown(FloorNumber currentFloor, FloorNumber targetFloor) {
-        return currentFloor.value() > targetFloor.value();
-    }
 }
