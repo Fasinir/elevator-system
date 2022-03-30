@@ -1,7 +1,6 @@
 package com.filippiwosz.elevatorsystem;
 
 import com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState;
-import com.filippiwosz.elevatorsystem.elevatorstaticproviders.ElevatorStaticProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;

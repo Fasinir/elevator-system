@@ -1,4 +1,4 @@
-package com.filippiwosz.elevatorsystem.elevatorstaticproviders;
+package com.filippiwosz.elevatorsystem;
 
 import com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState;
 import com.filippiwosz.elevatorsystem.elevatorstates.StandingState;

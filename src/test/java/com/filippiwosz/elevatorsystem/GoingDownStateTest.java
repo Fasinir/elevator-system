@@ -25,10 +25,9 @@ public class GoingDownStateTest {
         Elevator elevator = new Elevator(ELEVATOR_ID, STARTING_FLOOR, floorNumber, GOING_DOWN_STATE);
         // When
         elevator.update();
+        FloorNumber actual = elevator.currentStatus().currentFloor();
         // Then
         FloorNumber expected = new FloorNumber(STARTING_FLOOR.value() - 1);
-        FloorNumber actual = elevator.currentStatus().currentFloor();
-
         assertEquals(actual, expected);
     }
 
@@ -40,9 +39,9 @@ public class GoingDownStateTest {
         // When
         elevator.update();
         elevator.update();
+        ElevatorStatus actual = elevator.currentStatus();
         // Then
         ElevatorStatus expected = new ElevatorStatus(ELEVATOR_ID, targetFloor, Optional.empty());
-        ElevatorStatus actual = elevator.currentStatus();
         assertEquals(actual, expected);
     }
 }

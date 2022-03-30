@@ -24,8 +24,8 @@ public class StandingStateTest {
         Elevator elevator = new Elevator(ELEVATOR_ID, STARTING_FLOOR, null, STANDING_STATE);
         // When
         elevator.update();
-        // Then
         ElevatorStatus actual = elevator.currentStatus();
+        // Then
         ElevatorStatus expected = new ElevatorStatus(ELEVATOR_ID, STARTING_FLOOR, Optional.empty());
         assertEquals(actual, expected);
     }
