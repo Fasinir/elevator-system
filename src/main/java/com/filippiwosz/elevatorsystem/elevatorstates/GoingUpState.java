@@ -26,4 +26,9 @@ public class GoingUpState implements ElevatorState {
             elevator.changeState(new StandingState());
         }
     }
+
+    @Override
+    public String toString() {
+        return "U";
+    }
 }

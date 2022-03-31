@@ -57,4 +57,9 @@ public class Elevator {
     public void changeState(ElevatorState state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return id.value() + state.toString() + (id.value() < 10 ? "_" : "");
+    }
 }

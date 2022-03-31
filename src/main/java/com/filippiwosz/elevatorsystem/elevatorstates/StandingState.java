@@ -28,4 +28,8 @@ public class StandingState implements ElevatorState {
         }
     }
 
+    @Override
+    public String toString() {
+        return "S";
+    }
 }
