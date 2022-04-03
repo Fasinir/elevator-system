@@ -1,5 +1,7 @@
 package com.filippiwosz.elevatorsystem;
 
+import com.filippiwosz.elevatorsystem.datastructures.Elevator;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorStatus;
 import com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState;
 import org.testng.annotations.Test;
 

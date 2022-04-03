@@ -1,4 +1,4 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.datastructures;
 
 /**
  * @author Filip Piwosz

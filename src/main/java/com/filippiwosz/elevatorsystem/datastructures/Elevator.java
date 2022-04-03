@@ -1,4 +1,4 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.datastructures;
 
 import com.filippiwosz.elevatorsystem.elevatorstates.ElevatorState;
 import com.filippiwosz.elevatorsystem.elevatorstates.StandingState;
@@ -15,19 +15,19 @@ public class Elevator {
     private FloorNumber targetFloor;
     private ElevatorState state;
 
-    Elevator(int id, int startingFloor) {
+    public Elevator(int id, int startingFloor) {
         this(new ElevatorId(id), new FloorNumber(startingFloor), null, new StandingState());
     }
 
-    Elevator(ElevatorId id, FloorNumber startingFloor) {
+    public Elevator(ElevatorId id, FloorNumber startingFloor) {
         this(id, startingFloor, null, new StandingState());
     }
 
-    Elevator(int id, int startingFloor, int targetFloor, ElevatorState startingState) {
+    public Elevator(int id, int startingFloor, int targetFloor, ElevatorState startingState) {
         this(new ElevatorId(id), new FloorNumber(startingFloor), new FloorNumber(targetFloor), startingState);
     }
 
-    Elevator(ElevatorId id, FloorNumber startingFloor, FloorNumber targetFloor, ElevatorState startingState) {
+    public Elevator(ElevatorId id, FloorNumber startingFloor, FloorNumber targetFloor, ElevatorState startingState) {
         this.id = id;
         this.currentFloor = startingFloor;
         this.targetFloor = targetFloor;

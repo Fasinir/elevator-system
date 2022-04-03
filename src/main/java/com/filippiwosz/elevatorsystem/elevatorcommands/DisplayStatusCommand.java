@@ -1,6 +1,6 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
-import com.filippiwosz.elevatorsystem.ElevatorStatus;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorStatus;
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
 import com.filippiwosz.elevatorsystem.Logging;
 

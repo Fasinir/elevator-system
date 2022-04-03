@@ -1,7 +1,7 @@
 package com.filippiwosz.elevatorsystem.elevatorstates;
 
-import com.filippiwosz.elevatorsystem.Elevator;
-import com.filippiwosz.elevatorsystem.FloorNumber;
+import com.filippiwosz.elevatorsystem.datastructures.Elevator;
+import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
 
 /**
  * State design pattern

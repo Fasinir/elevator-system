@@ -1,4 +1,4 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.datastructures;
 
 import java.util.Optional;
 
@@ -6,7 +6,7 @@ import java.util.Optional;
  * @author Filip Piwosz
  */
 public record ElevatorStatus(ElevatorId id, FloorNumber currentFloor, Optional<FloorNumber> targetFloor) {
-    ElevatorStatus(int id, int currentFloor, int targetFloor) {
+    public ElevatorStatus(int id, int currentFloor, int targetFloor) {
         this(new ElevatorId(id), new FloorNumber(currentFloor), Optional.of(new FloorNumber(targetFloor)));
     }
 

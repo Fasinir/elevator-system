@@ -1,8 +1,14 @@
 package com.filippiwosz.elevatorsystem;
 
+import com.filippiwosz.elevatorsystem.datastructures.Elevator;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorId;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorStatus;
+import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
+
 import java.util.*;
 
 import static java.lang.Math.abs;
+import static java.lang.System.lineSeparator;
 
 /**
  * @author Filip Piwosz
@@ -59,8 +65,6 @@ public class ElevatorSystem {
 
     public void step() {
         elevatorsMap.values()
-                .forEach(Elevator::update);
-        elevatorsMap.values()
                 .stream()
                 .filter(elevator -> elevator
                         .currentStatus()
@@ -72,6 +76,8 @@ public class ElevatorSystem {
                         elevator.targetNewFloor(queue.pop());
                     }
                 });
+        elevatorsMap.values()
+                .forEach(Elevator::update);
     }
 
     public List<ElevatorStatus> status() {
@@ -87,6 +93,19 @@ public class ElevatorSystem {
     }
 
     public String elevatorsString() {
-        return null;
+        StringBuilder builder = new StringBuilder();
+        for (int i = buildingHeight; i >= 0; i--) {
+            for (int j = 0; j < elevatorsMap.size(); j++) {
+                Elevator elevator = elevatorsMap.get(new ElevatorId(j));
+                FloorNumber currentFloor = elevator.currentStatus().currentFloor();
+                if (currentFloor.value() == i) {
+                    builder.append("|").append(elevator);
+                } else {
+                    builder.append("|___");
+                }
+            }
+            builder.append(lineSeparator());
+        }
+        return builder.toString();
     }
 }

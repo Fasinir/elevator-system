@@ -1,8 +1,8 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
-import com.filippiwosz.elevatorsystem.ElevatorId;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorId;
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
-import com.filippiwosz.elevatorsystem.FloorNumber;
+import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
 
 /**
  * @author Filip Piwosz

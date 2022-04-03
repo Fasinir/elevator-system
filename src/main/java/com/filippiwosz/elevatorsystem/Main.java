@@ -5,6 +5,7 @@ import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorCommandException;
 import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorCommandFactory;
 import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -21,11 +22,10 @@ public class Main {
         //default values
         int numberOfFloors = DEFAULT_FLOORS;
         int numberOfElevators = DEFAULT_ELEVATORS;
-
         try {
-            if (args.length > 1) {
+            if (args.length >= 1) {
                 numberOfFloors = Integer.parseInt(args[0]);
-                if (args.length > 2) {
+                if (args.length >= 2) {
                     numberOfElevators = Integer.parseInt(args[1]);
                 }
             }

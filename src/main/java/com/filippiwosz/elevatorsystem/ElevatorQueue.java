@@ -1,5 +1,7 @@
 package com.filippiwosz.elevatorsystem;
 
+import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
+
 import java.util.Deque;
 
 /**
