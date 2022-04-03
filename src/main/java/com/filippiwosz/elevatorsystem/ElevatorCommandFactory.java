@@ -7,6 +7,6 @@ package com.filippiwosz.elevatorsystem;
  */
 interface ElevatorCommandFactory {
 
-    ElevatorSystemCommand createCommandFromInput(String input, ElevatorSystem system);
+    ElevatorSystemCommand createCommandFromInput(String input);
 
 }

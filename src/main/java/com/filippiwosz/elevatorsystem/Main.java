@@ -1,10 +1,44 @@
 package com.filippiwosz.elevatorsystem;
 
+import java.util.Scanner;
+
 /**
  * @author Filip Piwosz
  */
 public class Main {
+    private static final int DEFAULT_FLOORS = 5;
+    private static final int DEFAULT_ELEVATORS = 5;
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        UserInputReader reader = new UserInputReader(new Scanner(System.in));
+
+        //default values
+        int numberOfFloors = DEFAULT_FLOORS;
+        int numberOfElevators = DEFAULT_ELEVATORS;
+
+        try {
+            if (args.length > 1) {
+                numberOfFloors = Integer.parseInt(args[0]);
+                if (args.length > 2) {
+                    numberOfElevators = Integer.parseInt(args[1]);
+                }
+            }
+        } catch (NumberFormatException e) {
+            Logging.error("Error parsing input arguments assigning default values");
+        }
+        Logging.info("Simulating elevator system for " + numberOfElevators + " number of elevators and " +
+                numberOfFloors + " number of floors");
+        String input;
+        ElevatorSystem system = new ElevatorSystem(numberOfElevators, numberOfFloors);
+        ElevatorCommandFactory factory = new ConcreteElevatorCommandFactory(system);
+        while (!(input = reader.readLine()).equalsIgnoreCase("exit")) {
+            ElevatorSystemCommand command = factory.createCommandFromInput(input);
+            command.execute();
+        }
+
+
     }
+
+
 }

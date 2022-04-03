@@ -17,8 +17,7 @@ class PickupCommand implements ElevatorSystemCommand {
     public void execute() {
         String[] splitted = data.split(" ");
         int floorNumber = Integer.parseInt(splitted[0]);
-        ElevatorDirection elevatorDirection = ElevatorDirection.valueOf(splitted[1].toUpperCase());
 
-        system.pickup(new FloorNumber(floorNumber), elevatorDirection);
+        system.pickup(new FloorNumber(floorNumber));
     }
 }

@@ -26,7 +26,7 @@ class ElevatorSystem {
         }
     }
 
-    void pickup(FloorNumber number, ElevatorDirection direction) {
+    void pickup(FloorNumber number) {
         throw new UnsupportedOperationException();
     }
 
