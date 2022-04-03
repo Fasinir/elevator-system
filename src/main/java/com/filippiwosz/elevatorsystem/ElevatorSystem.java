@@ -1,9 +1,8 @@
 package com.filippiwosz.elevatorsystem;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.Math.abs;
 
 /**
  * @author Filip Piwosz
@@ -27,7 +26,35 @@ public class ElevatorSystem {
     }
 
     public void pickup(FloorNumber number) {
-        throw new UnsupportedOperationException();
+        List<Elevator> standingElevators = elevatorsMap.values()
+                .stream()
+                .filter(elevator -> elevator.currentStatus().targetFloor().isEmpty())
+                .toList();
+        if (standingElevators.isEmpty()) {
+            pickupFromSmallestQueue(number);
+        } else {
+            Elevator closestElevator = standingElevators
+                    .stream()
+                    .min(Comparator.comparing(elevator -> abs(elevator.currentStatus().currentFloor()
+                            .value() - number.value())))
+                    .get();
+            ElevatorId id = closestElevator.currentStatus().id();
+            ElevatorQueue queue = elevatorQueues.get(id);
+            queue.push(number);
+        }
+    }
+
+    private void pickupFromSmallestQueue(FloorNumber number) {
+        ElevatorQueue queue = elevatorQueues.entrySet()
+                .stream()
+                .min(Comparator.comparing(entry -> {
+                    Elevator elevator = elevatorsMap.get(entry.getKey());
+                    FloorNumber startFloor = elevator.currentStatus().currentFloor();
+                    return entry.getValue().distanceFromFloor(startFloor, number);
+                }))
+                .get()
+                .getValue();
+        queue.push(number);
     }
 
     public void step() {

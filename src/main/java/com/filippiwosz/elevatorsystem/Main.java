@@ -1,6 +1,7 @@
 package com.filippiwosz.elevatorsystem;
 
 import com.filippiwosz.elevatorsystem.elevatorcommands.ConcreteElevatorCommandFactory;
+import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorCommandException;
 import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorCommandFactory;
 import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
@@ -37,8 +38,13 @@ public class Main {
         ElevatorSystem system = new ElevatorSystem(numberOfElevators, numberOfFloors);
         ElevatorCommandFactory factory = new ConcreteElevatorCommandFactory(system);
         while (!(input = reader.readLine()).equalsIgnoreCase("exit")) {
-            ElevatorSystemCommand command = factory.createCommandFromInput(input);
-            command.execute();
+            ElevatorSystemCommand command;
+            try {
+                command = factory.createCommandFromInput(input);
+                command.execute();
+            } catch (ElevatorCommandException e) {
+                Logging.error(e.getMessage());
+            }
         }
 
 
