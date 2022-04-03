@@ -9,6 +9,6 @@ import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
  */
 public interface ElevatorCommandFactory {
 
-    public ElevatorSystemCommand createCommandFromInput(String input);
+    public ElevatorSystemCommand createCommandFromInput(String input) throws ElevatorCommandException;
 
 }

@@ -38,7 +38,7 @@ public class Elevator {
         return new ElevatorStatus(id, currentFloor, Optional.ofNullable(targetFloor));
     }
 
-    void update() {
+    public void update() {
         state.update(this);
     }
 

@@ -1,6 +1,7 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
+import com.filippiwosz.elevatorsystem.Logging;
 import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
 /**
@@ -16,6 +17,6 @@ class DrawElevatorsCommand implements ElevatorSystemCommand {
 
     @Override
     public void execute() {
-        System.out.println(system.elevatorsString());
+        Logging.info(system.elevatorsString());
     }
 }

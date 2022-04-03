@@ -2,7 +2,7 @@ package com.filippiwosz.elevatorsystem.elevatorcommands;
 
 import com.filippiwosz.elevatorsystem.ElevatorStatus;
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
-import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
+import com.filippiwosz.elevatorsystem.Logging;
 
 import java.util.List;
 
@@ -31,6 +31,6 @@ class DisplayStatusCommand implements ElevatorSystemCommand {
         if (!statusList.isEmpty()) {
             builder.delete(builder.length() - 1, builder.length());
         }
-        System.out.println(builder);
+        Logging.info(builder);
     }
 }
