@@ -19,6 +19,15 @@ public class ElevatorSystem {
     private final Map<ElevatorId, ElevatorQueue> elevatorQueues;
     private final int buildingHeight;
 
+    private static final String INVALID_ELEVATOR_ID = "Invalid elevator ID!";
+    private static final String INVALID_FLOOR_NUMBER = "Invalid floor number!";
+
+    ElevatorSystem(Map<ElevatorId, Elevator> elevatorsMap, Map<ElevatorId, ElevatorQueue> elevatorQueues, int buildingHeight) {
+        this.elevatorsMap = elevatorsMap;
+        this.elevatorQueues = elevatorQueues;
+        this.buildingHeight = buildingHeight;
+    }
+
     public ElevatorSystem(int numberOfElevators, int buildingHeight) {
         this.elevatorsMap = new HashMap<>();
         this.elevatorQueues = new HashMap<>();
@@ -31,7 +40,10 @@ public class ElevatorSystem {
         }
     }
 
-    public void pickup(FloorNumber number) {
+    public void pickup(FloorNumber number) throws ElevatorSystemException {
+        if (!floorNumberIsValid(number)) {
+            throw new ElevatorSystemException(INVALID_FLOOR_NUMBER);
+        }
         List<Elevator> standingElevators = elevatorsMap.values()
                 .stream()
                 .filter(elevator -> elevator.currentStatus().targetFloor().isEmpty())
@@ -87,7 +99,13 @@ public class ElevatorSystem {
                 .toList();
     }
 
-    public void pushElevatorButton(ElevatorId id, FloorNumber targetFloorNumber) {
+    public void pushElevatorButton(ElevatorId id, FloorNumber targetFloorNumber) throws ElevatorSystemException {
+        if (!elevatorIdIsValid(id)) {
+            throw new ElevatorSystemException(INVALID_ELEVATOR_ID);
+        }
+        if (!floorNumberIsValid(targetFloorNumber)) {
+            throw new ElevatorSystemException(INVALID_FLOOR_NUMBER);
+        }
         ElevatorQueue queue = elevatorQueues.get(id);
         queue.push(targetFloorNumber);
     }
@@ -107,5 +125,14 @@ public class ElevatorSystem {
             builder.append(lineSeparator());
         }
         return builder.toString();
+    }
+
+    private boolean floorNumberIsValid(FloorNumber floorNumber) {
+        int val = floorNumber.value();
+        return val >= 0 && val <= buildingHeight;
+    }
+
+    private boolean elevatorIdIsValid(ElevatorId id) {
+        return elevatorsMap.get(id) != null;
     }
 }

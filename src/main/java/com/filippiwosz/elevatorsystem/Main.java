@@ -42,7 +42,7 @@ public class Main {
             try {
                 command = factory.createCommandFromInput(input);
                 command.execute();
-            } catch (ElevatorCommandException e) {
+            } catch (ElevatorException e) {
                 Logging.error(e.getMessage());
             }
         }

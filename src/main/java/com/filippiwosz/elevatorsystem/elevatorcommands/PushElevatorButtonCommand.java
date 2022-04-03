@@ -1,5 +1,6 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
+import com.filippiwosz.elevatorsystem.ElevatorSystemException;
 import com.filippiwosz.elevatorsystem.datastructures.ElevatorId;
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
 import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
@@ -20,7 +21,7 @@ class PushElevatorButtonCommand implements ElevatorSystemCommand {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ElevatorSystemException {
         system.pushElevatorButton(elevatorId, targetFloor);
     }
 }
