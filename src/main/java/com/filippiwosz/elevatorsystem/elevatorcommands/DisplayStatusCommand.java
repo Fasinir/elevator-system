@@ -1,4 +1,8 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.elevatorcommands;
+
+import com.filippiwosz.elevatorsystem.ElevatorStatus;
+import com.filippiwosz.elevatorsystem.ElevatorSystem;
+import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
 import java.util.List;
 

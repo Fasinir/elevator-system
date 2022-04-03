@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * @author Filip Piwosz
  */
-class ElevatorSystem {
+public class ElevatorSystem {
 
     private final Map<ElevatorId, Elevator> elevatorsMap;
     private final Map<ElevatorId, ElevatorQueue> elevatorQueues;
@@ -26,11 +26,11 @@ class ElevatorSystem {
         }
     }
 
-    void pickup(FloorNumber number) {
+    public void pickup(FloorNumber number) {
         throw new UnsupportedOperationException();
     }
 
-    void step() {
+    public void step() {
         elevatorsMap.values()
                 .forEach(Elevator::update);
         elevatorsMap.values()
@@ -47,7 +47,7 @@ class ElevatorSystem {
                 });
     }
 
-    List<ElevatorStatus> status() {
+    public List<ElevatorStatus> status() {
         return elevatorsMap.values()
                 .stream()
                 .map(Elevator::currentStatus)

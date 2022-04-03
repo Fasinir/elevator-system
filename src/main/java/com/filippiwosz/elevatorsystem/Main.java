@@ -1,5 +1,9 @@
 package com.filippiwosz.elevatorsystem;
 
+import com.filippiwosz.elevatorsystem.elevatorcommands.ConcreteElevatorCommandFactory;
+import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorCommandFactory;
+import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
+
 import java.util.Scanner;
 
 /**

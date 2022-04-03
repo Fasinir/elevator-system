@@ -1,9 +1,12 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.elevatorcommands;
+
+import com.filippiwosz.elevatorsystem.ElevatorSystem;
+import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
 /**
  * @author Filip Piwosz
  */
-class DrawElevatorsCommand implements ElevatorSystemCommand{
+class DrawElevatorsCommand implements ElevatorSystemCommand {
 
     final ElevatorSystem system;
 
