@@ -25,7 +25,7 @@ public class ConcreteElevatorCommandFactory implements ElevatorCommandFactory {
                 case "draw":
                     return new DrawElevatorsCommand(system);
                 case "pickup":
-                    return new PickupCommand(system, splitted[1]);
+                    return new PickupCommand(system, Integer.parseInt(splitted[1]));
                 case "push":
                     int id = Integer.parseInt(splitted[1]);
                     int floor = Integer.parseInt(splitted[2]);

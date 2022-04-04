@@ -5,6 +5,7 @@ import com.filippiwosz.elevatorsystem.ElevatorSystem;
 import com.filippiwosz.elevatorsystem.Logging;
 
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.System.lineSeparator;
 
@@ -32,5 +33,18 @@ class DisplayStatusCommand implements ElevatorSystemCommand {
             builder.delete(builder.length() - 1, builder.length());
         }
         Logging.info(builder);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DisplayStatusCommand that = (DisplayStatusCommand) o;
+        return Objects.equals(system, that.system);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(system);
     }
 }

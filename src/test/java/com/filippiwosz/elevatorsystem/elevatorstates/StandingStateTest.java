@@ -1,4 +1,4 @@
-package com.filippiwosz.elevatorsystem;
+package com.filippiwosz.elevatorsystem.elevatorstates;
 
 import com.filippiwosz.elevatorsystem.datastructures.Elevator;
 import com.filippiwosz.elevatorsystem.datastructures.ElevatorId;
