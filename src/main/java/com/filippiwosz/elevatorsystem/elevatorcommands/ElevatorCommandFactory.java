@@ -1,7 +1,5 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
-import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
-
 /**
  * Factory method design pattern
  *
@@ -9,6 +7,6 @@ import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
  */
 public interface ElevatorCommandFactory {
 
-    public ElevatorSystemCommand createCommandFromInput(String input) throws ElevatorCommandException;
+    ElevatorSystemCommand createCommandFromInput(String input) throws ElevatorCommandException;
 
 }

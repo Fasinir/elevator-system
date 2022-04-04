@@ -2,7 +2,6 @@ package com.filippiwosz.elevatorsystem.elevatorcommands;
 
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
 import com.filippiwosz.elevatorsystem.Logging;
-import com.filippiwosz.elevatorsystem.elevatorcommands.ElevatorSystemCommand;
 
 import java.util.Objects;
 

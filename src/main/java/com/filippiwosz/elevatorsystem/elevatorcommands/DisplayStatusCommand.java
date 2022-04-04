@@ -1,8 +1,8 @@
 package com.filippiwosz.elevatorsystem.elevatorcommands;
 
-import com.filippiwosz.elevatorsystem.datastructures.ElevatorStatus;
 import com.filippiwosz.elevatorsystem.ElevatorSystem;
 import com.filippiwosz.elevatorsystem.Logging;
+import com.filippiwosz.elevatorsystem.datastructures.ElevatorStatus;
 
 import java.util.List;
 import java.util.Objects;

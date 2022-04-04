@@ -11,22 +11,18 @@ import static java.lang.Math.abs;
 import static java.lang.System.lineSeparator;
 
 /**
+ * The core of the simulation.
+ *
  * @author Filip Piwosz
  */
 public class ElevatorSystem {
 
+    private static final String INVALID_ELEVATOR_ID = "Invalid elevator ID!";
+    private static final String INVALID_FLOOR_NUMBER = "Invalid floor number!";
     private final Map<ElevatorId, Elevator> elevatorsMap;
     private final Map<ElevatorId, ElevatorQueue> elevatorQueues;
     private final int buildingHeight;
 
-    private static final String INVALID_ELEVATOR_ID = "Invalid elevator ID!";
-    private static final String INVALID_FLOOR_NUMBER = "Invalid floor number!";
-
-    ElevatorSystem(Map<ElevatorId, Elevator> elevatorsMap, Map<ElevatorId, ElevatorQueue> elevatorQueues, int buildingHeight) {
-        this.elevatorsMap = elevatorsMap;
-        this.elevatorQueues = elevatorQueues;
-        this.buildingHeight = buildingHeight;
-    }
 
     public ElevatorSystem(int numberOfElevators, int buildingHeight) {
         this.elevatorsMap = new HashMap<>();
@@ -40,6 +36,12 @@ public class ElevatorSystem {
         }
     }
 
+    /**
+     * Searches for the closest and least busy elevator to get to the target floor.
+     *
+     * @param number - target floor number
+     * @throws ElevatorSystemException - when invalid floor number
+     */
     public void pickup(FloorNumber number) throws ElevatorSystemException {
         if (!floorNumberIsValid(number)) {
             throw new ElevatorSystemException(INVALID_FLOOR_NUMBER);
@@ -75,6 +77,9 @@ public class ElevatorSystem {
         queue.push(number);
     }
 
+    /**
+     * Assigns elevators' their new target floors (from their queues) and then updates them.
+     */
     public void step() {
         elevatorsMap.values()
                 .stream()
@@ -92,6 +97,9 @@ public class ElevatorSystem {
                 .forEach(Elevator::update);
     }
 
+    /**
+     * @return - a list of each elevator status
+     */
     public List<ElevatorStatus> status() {
         return elevatorsMap.values()
                 .stream()
@@ -99,6 +107,13 @@ public class ElevatorSystem {
                 .toList();
     }
 
+    /**
+     * Adds targetFloorNumber to elevator's queue.
+     *
+     * @param id                - elevator id
+     * @param targetFloorNumber - destination for the elevator
+     * @throws ElevatorSystemException
+     */
     public void pushElevatorButton(ElevatorId id, FloorNumber targetFloorNumber) throws ElevatorSystemException {
         if (!elevatorIdIsValid(id)) {
             throw new ElevatorSystemException(INVALID_ELEVATOR_ID);
@@ -110,6 +125,9 @@ public class ElevatorSystem {
         queue.push(targetFloorNumber);
     }
 
+    /**
+     * @return String of current simulation state.
+     */
     public String elevatorsString() {
         StringBuilder builder = new StringBuilder();
         for (int i = buildingHeight; i >= 0; i--) {

@@ -1,6 +1,5 @@
 package com.filippiwosz.elevatorsystem;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,10 +7,10 @@ import org.apache.logging.log4j.Logger;
  * @author Filip Piwosz
  */
 public class Logging {
+    private static final Logger logger = LogManager.getLogger("Logger");
+
     private Logging() {
     }
-
-    private static final Logger logger = LogManager.getLogger("Logger");
 
     public static void error(Object message) {
         logger.error(message);

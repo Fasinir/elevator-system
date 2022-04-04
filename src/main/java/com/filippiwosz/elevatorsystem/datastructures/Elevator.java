@@ -38,6 +38,9 @@ public class Elevator {
         return new ElevatorStatus(id, currentFloor, Optional.ofNullable(targetFloor));
     }
 
+    /**
+     * State design pattern method.
+     */
     public void update() {
         state.update(this);
     }
@@ -50,6 +53,9 @@ public class Elevator {
         currentFloor = new FloorNumber(currentFloor.value() - 1);
     }
 
+    /**
+     * @param floorNumber - new target floor, can be null which indicates there is no target floor now
+     */
     public void targetNewFloor(FloorNumber floorNumber) {
         targetFloor = floorNumber;
     }

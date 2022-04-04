@@ -10,8 +10,6 @@ import com.filippiwosz.elevatorsystem.datastructures.FloorNumber;
  */
 public interface ElevatorState {
 
-    void update(Elevator elevator);
-
     static boolean targetFloorIsUp(FloorNumber current, FloorNumber target) {
         return current.value() < target.value();
     }
@@ -23,4 +21,6 @@ public interface ElevatorState {
     static boolean targetFloorHasBeenReached(FloorNumber current, FloorNumber target) {
         return current.equals(target);
     }
+
+    void update(Elevator elevator);
 }
